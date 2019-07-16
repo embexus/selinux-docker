@@ -8,5 +8,5 @@ Docker Image with debian stretch and all dependencies to work with selinux
 ## Run Docker Image
 
        sudo docker run --rm --privileged -ti -h selinux \
-             -v /path/to/refpolicy:/home/build/refpolicy selinux-docker
+             -v /path/to/refpolicy:/home/selinux/refpolicy selinux-docker
 

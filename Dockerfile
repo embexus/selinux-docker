@@ -31,13 +31,13 @@ RUN echo "build ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
-USER build
-RUN echo "build:build" | sudo chpasswd
+USER selinux
+RUN echo "selinux:selinux" | sudo chpasswd
 RUN echo -e "\n\n\n" | ssh-keygen -t rsa
 
-RUN sudo chown -R build:build /home/build
+RUN sudo chown -R selinux:selinux /home/selinux
 
-WORKDIR /home/build
+WORKDIR /home/selinux
 CMD ["/bin/bash"]
 
 EXPOSE 22
