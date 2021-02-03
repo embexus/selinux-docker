@@ -1,12 +1,12 @@
 # Docker for Selinux 
-Docker Image with debian stretch and all dependencies to work with selinux
+Docker Image with Ubuntu 18.04 and all dependencies to work with selinux
 
 ## Generate Docker Image
 
-        sudo docker build --rm=true --tag selinux-docker .
+        sudo docker build --build-arg USER=${USER} --build-arg UID=${UID} --rm=true --tag selinux-docker .
         
 ## Run Docker Image
 
        sudo docker run --rm --privileged -ti -h selinux \
-             -v /path/to/refpolicy:/home/selinux/refpolicy selinux-docker
+             -v ${HOME}:${HOME} selinux-docker
 
