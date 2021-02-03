@@ -2,17 +2,19 @@ FROM ubuntu:18.04
 
 MAINTAINER Ayoub Zaki <ayoub.zaki@embexus.com> 
 
+# Install required Packages for the Host Development System
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y software-properties-common
-
-# Required Packages for the Host Development System
-RUN apt-get update
-RUN apt-get install -y bc bsdmainutils gawk wget git-core diffstat unzip texinfo xz-utils debianutils  \
-	xutils-dev xterm build-essential chrpath socat fakeroot debhelper m4 python devscripts lintian
+RUN apt-get install -y bc software-properties-common \
+        bsdmainutils gawk wget git-core \
+	diffstat unzip texinfo xz-utils debianutils  \
+	xutils-dev xterm build-essential chrpath     \
+        socat fakeroot debhelper m4 python devscripts \
+        lintian
 
 # Add Selinux Packages
-RUN apt-get install --no-install-recommends -y selinux-policy-default python3-sepolgen \
-	selinux-basics selinux-utils policycoreutils policycoreutils-dev policycoreutils-python-utils
+RUN apt-get install -y selinux-policy-default python3-sepolgen \
+	selinux-basics selinux-utils policycoreutils           \
+        policycoreutils-dev policycoreutils-python-utils
 
 ARG UID
 ARG USER
