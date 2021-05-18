@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:buster
 
 MAINTAINER Ayoub Zaki <ayoub.zaki@embexus.com> 
 
@@ -9,12 +9,12 @@ RUN apt-get install -y bc software-properties-common \
 	diffstat unzip texinfo xz-utils debianutils  \
 	xutils-dev xterm build-essential chrpath     \
         socat fakeroot debhelper m4 python devscripts \
-        lintian
+        lintian libc6-dev vim auditd
 
 # Add Selinux Packages
 RUN apt-get install -y selinux-policy-default python3-sepolgen \
-	selinux-basics selinux-utils policycoreutils           \
-        policycoreutils-dev policycoreutils-python-utils
+	selinux-basics selinux-utils policycoreutils selinux-policy-dev \
+        policycoreutils-dev policycoreutils-python-utils setools
 
 ARG UID
 ARG USER
