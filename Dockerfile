@@ -9,7 +9,7 @@ RUN apt-get install -y bc software-properties-common \
 	diffstat unzip texinfo xz-utils debianutils  \
 	xutils-dev xterm build-essential chrpath     \
         socat fakeroot debhelper m4 python devscripts \
-        lintian libc6-dev vim auditd
+        lintian libc6-dev vim auditd libxml2-utils
 
 # Add Selinux Packages
 RUN apt-get install -y selinux-policy-default python3-sepolgen \

@@ -1,5 +1,5 @@
 # Docker for Selinux 
-Docker Image with Ubuntu 18.04 and all dependencies to work with selinux
+Docker Image with Debian Buster and all dependencies to work with Selinux
 
 ## Generate Docker Image
 
